@@ -12,7 +12,7 @@
                 <td><p>Ваше имя: </p></td>
                 <td>
                     <p>
-                        <input type="text" value="{{textname}}" placeholder="Name" required />
+                        <input [(ngModel)]="nameInputString" placeholder="Name" required type="text"/>
                         <!--<input type="text" name="Name" required />-->
                     </p>
                 </td>
@@ -21,7 +21,8 @@
                 <td><p>Ваш Email: </p></td>
                 <td>
                     <p>
-                        <input type="text" value="{{textemail}}" pattern="[A-Za-z]{,50}.[a-z]{,1}mail.[a-z]{,5}" placeholder="Email" required />
+                        <input [(ngModel)]="emailInputString" email="true" ngModel placeholder="Email" required
+                               type="text"/>
                         <!--<input type="email" name="Email" pattern="[A-Za-z]{,50}.[a-z]{,1}mail.[a-z]{,5}" required />-->
                     </p>
                 </td>
@@ -30,35 +31,14 @@
                 <td><p>Ваш телефон: </p></td>
                 <td>
                     <p>
-                        <input type="number" value="{{numberphone}}" placeholder="Phone" pattern="[0-9]{11}" max="89999999999" min="80000000000"  required />
+                        <input [(ngModel)]="phoneInputString" max="89999999999" min="80000000000" pattern="[0-9]{11}"
+                               placeholder="Phone" required type="number"/>
                         <!--<input type="number" class="input-number" name="Tel" pattern="[0-9]{11}" max="89999999999" min="80000000000" placeholder="89001112233" required />-->
                     </p>
                 </td>
             </tr>
-            <!--<tr>
-              <td><p>Тема: </p></td>
-              <td>
-                <p>
-                  <select name="Theme" size="1" required>
-                    <option value="Техподдержка">Техподдержка</option>
-                    <option value="Продажи">Продажи</option>
-                    <option value="Сотрудничество">Сотрудничество</option>
-                    <option value="Партнеры">Партнеры</option>
-                  </select>
-                </p>
-              </td>
-            </tr>
-            <tr>
-              <td><p>Ваше сообщение: </p></td>
-              <td><p><textarea name="Text" cols="30" rows="10" required></textarea></p></td>
-            </tr>
-            <tr>
-              <td><p>Captcha: </p></td>
-              <td>
-              </td>
-            </tr>-->
         </table>
-        <button class="btn-primary" (click)="addUser(textname, numberphone, textemail)">Send</button>
+        <button (click)="addUser(nameInputString, phoneInputString, emailInputString)" class="btn-primary">Send</button>
         <!--<button type="submit">Отправить</button>-->
     </div>
     <div>
@@ -71,11 +51,11 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let user of users">
-                    <td>{{user.username}}</td>
-                    <td>{{user.userphone}}</td>
-                    <td>{{user.useremail}}</td>
-                </tr>
+            <tr *ngFor="let user of users">
+                <td>{{user.name}}</td>
+                <td>{{user.phone}}</td>
+                <td>{{user.email}}</td>
+            </tr>
             </tbody>
         </table>
     </div>
