@@ -41,7 +41,6 @@ export class AppComponent {
         if (textname == null || textname == "" || numberphone == null || textemail == null)
             return;
         this.users.push(new user(textname, numberphone, textemail));
-        console.log(this.users);
     }
     /*addUser(user: user) {
         console.log("sucsses");

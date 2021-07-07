@@ -71,10 +71,10 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="user in users">
-                    <td>{{user.name}}</td>
-                    <td>{{user.phone}}</td>
-                    <td>{{user.email}}</td>
+                <tr *ngFor="let user of users">
+                    <td>{{user.username}}</td>
+                    <td>{{user.userphone}}</td>
+                    <td>{{user.useremail}}</td>
                 </tr>
             </tbody>
         </table>
